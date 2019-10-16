@@ -1,4 +1,6 @@
 <?php
+// Paso 1 creo el formulario.
+
 /* asi como esta el formulario, la informacion se
   envia, chequearlo con el var_dump*/
 var_dump($_POST);

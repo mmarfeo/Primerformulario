@@ -1,21 +1,48 @@
 <?php
+/* Paso 3 creo la funcion para validar
+ si la informacion esta bien o necesito
+ que me emita un error.*/
 
+// el echo esta para verificar que los archivos estan vinculados.
 echo "lalalalala";
   function validar_registro($validacion){
 
     // Validar nombre.
     // Chequear si el nombre está vacío.
+    /*Esta funcion nos dice que si se envia informacion por el metodo post,
+      tomar la informacion de name="nombre" y si es = a vacio, entonces
+      que tome de la variable $validacion que esta definida en el archivo
+      registroPaso2 la posicion "error" y dentro de este arrar la posicion
+      nombre y cambiar su informacion que esta "" vacia por "Este campo
+      es obligatorio" y ...*/
+
     if ($_POST["nombre"] == "") {
         $validacion["error"]["nombre"] = "Este campo es obligatorio.";
-    } else {
+    }
+
+   /* ...si no (else) esta vacio que reemplace en el array la
+    posicion "nombre" que esta vacia de la variable $validacion por la informacion
+    enviada por $_POST["nombre"]. y si pasa esto...*/
+
+    else {
         $validacion["valor"]["nombre"] = $_POST["nombre"];
+
         // Chequear si el nombre sólo contiene letras y espacios.
+    /*...como la informacion enviada no esta vacia, entonces hay que
+      verificar que la informacion cumpla con los requisitos que decidimos
+      con las expresiones regulares que en este caso si no tiene solo letras y
+      espacios entonces reemplaza en la variable $validacion, en las posicion
+      "error" y dentro de este arrray la posicion "nombre" "El nombre sólo
+      puede contener letras y espacios." y a la vez en la posicion "valor" "nombre"
+      reemplazarlo por vacio "", es decir borrar el contenido puesto en el rectangulo
+      porque esta mal y asi el usuario lo vuelve a completar.*/
+
         if (!preg_match("/^[a-zA-Z ]*$/",$validacion["valor"]["nombre"])) {
           $validacion["error"]["nombre"] = "El nombre sólo puede contener letras y espacios.";
           $validacion["valor"]["nombre"] = "";
         }
       }
-
+/*
     // Validar apellido.
     // Chequear si el apellido está vacío.
     if ($_POST["apellido"] == "") {
@@ -129,7 +156,7 @@ echo "lalalalala";
           $validacion["valor"]["conf-clave"] = "";
         }
       }
-
+*/
     return $validacion;
   }
   ?>

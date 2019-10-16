@@ -4,7 +4,7 @@ var_dump($_POST);
     //Incluir archivo para que realice lo necesario
     include_once "validar-registro.php";
 
-/* en el paso 2 creo la variable que va a recibir
+/* Paso 2: creo la variable que va a recibir
   infomacion de lo enviado por $_POST */
 
 $validacion=[
@@ -30,6 +30,10 @@ $validacion=[
     ]
 ];
 
+/*Paso 4: Hay que llamar la funcion validar validar_registro
+  que fue creado en el paso anterio pero no se esta ejecutando*/
+
+  $validacion=validar_registro($validacion);
 ?>
 
 <!DOCTYPE html>
@@ -57,17 +61,17 @@ $validacion=[
       <main class="row">
 
         <!-- creamos un div que va a contener todo el formulario-->
-        <div class=" col-6 offset-4">
+        <div class=" col-12">
 
           <!--creamos el formulario que se va a enviar por post, lo que esta en el atributo action indica que
            permanecera en la pagina una vez enviado el formulario y enctype multipart... indica que soporta adjuntar archivos -->
-          <form class="row col-4" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" method="post">
+          <form class="row col-12" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" method="post">
 
 <!--insertamos cada uno de los campos del formuario-->
 
             <!-- Nombre -->
             <!--Ponemos un div que contenga el dato del fomulario y donde se debe completar-->
-            <div class="">
+            <div class="col-4 offset-4">
               <!-- se crea la etiqueta label para el texto que muestra el formulario-->
               <label for="nombre">Nombre</label>
 
@@ -79,58 +83,60 @@ $validacion=[
             </div>
 
             <!-- Apellido -->
-            <div class="">
+            <div class="col-4 offset-4">
               <label for="apellido">Apellido</label>
               <input type="text" name="apellido" value="">
             </div>
 
 <!-- para hacer el var_dump tiene que estar entre etiquetas php <?php// var_dump($_POST)?> como figura aca -->
             <!-- Username -->
-            <div class="">
-              <label for="">Nombre de Usuario</label>
+            <div class="col-5 offset-4">
+              <label for="">Username</label>
               <input type="text" name="usuario" value="">
             </div>
 
             <!-- Email -->
-            <div class="">
+            <div class="col-4 offset-4">
               <label for="email">Email</label>
               <input type="text" name="email" value="">
             </div>
 
             <!-- Fecha de nacimiento -->
-            <div class="">
+            <div class="col-6 offset-4">
               <label for="">Fecha de Nacimiento</label>
               <input type="date" name="fecha-nac" value="">
             </div>
 
             <!-- Género -->
-            <div class="">
+            <div class="col-1 offset-4">
               <label for="genero">Género</label>
             </div>
-            <div class="">
+            <div class="col-7">
               <input type="radio" name="genero" value="hombre">Hombre
               <input type="radio" name="genero" value="mujer">Mujer
               <input type="radio" name="genero" value="Planta">Planta
             </div>
 
             <!-- Contraseña -->
-            <div class="">
+            <div class="col-6 offset-4">
               <label for="contrasenia">Contraseña</label>
               <input type="password" name="contrasenia" value="">
+            </div>
 
             <!-- Confirmar contraseña -->
-            <div class="">
+            <div class="col-6 offset-4">
               <label for="conf-contrasenia">Confirmar Contraseña</label>
               <input type="password" name="conf-contrasenia" value="">
+            </div>
 
               <!-- Recordar usuario -->
-              <div class="">
+              <div class="col-4 offset-6">
                 <input type="checkbox" name="recordarme" value="">
                 <label for="recordarme">Recordarme</label>
               </div>
 
               <!-- Enviar formulario -->
-              <div class="">
+              <div class="col-4 offset-6">
                 <input type="submit" value="Crear cuenta" class="boton">
               </div>
 
