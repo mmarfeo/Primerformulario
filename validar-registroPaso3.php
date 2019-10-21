@@ -1,10 +1,12 @@
 <?php
+
+// el echo esta para verificar que los archivos estan vinculados.
+echo "lalalalala";
+
 /* Paso 3 creo la funcion para validar
  si la informacion esta bien o necesito
  que me emita un error.*/
 
-// el echo esta para verificar que los archivos estan vinculados.
-echo "lalalalala";
   function validar_registro($validacion){
 
     // Validar nombre.
@@ -42,52 +44,43 @@ echo "lalalalala";
           $validacion["valor"]["nombre"] = "";
         }
       }
-/*
-    // Validar apellido.
-    // Chequear si el apellido está vacío.
-    if ($_POST["apellido"] == "") {
-      $validacion["error"]["apellido"] = "Este campo es obligatorio.";
-    } else {
-        $validacion["valor"]["apellido"] = $_POST["apellido"];
+      //Validar apellido.
+      //Chequear si el apellido esta vacio.
+      if($_POST["apellido"]==""){
+        $validacion["error"]["apellido"] = "Este campo es obligatorio.";
+      }else{
+        $validaion["valor"]["apellido"] = $_POST["apellido"];
         // Chequear si el apellido sólo contiene letras y espacios.
-        if (!preg_match("/^[a-zA-Z ]*$/",$validacion["valor"]["apellido"])) {
-          $validacion["error"]["apellido"] = "El apellido sólo puede contener letras y espacios.";
+        if(!preg_match("/^[a-zA-Z ]*$/",$validacion["valor"]["apellido"])){
+          $validacion["error"]["apellido"] = "El apellido solo puede contener letras y espacios.";
           $validacion["valor"]["apellido"] = "";
         }
       }
-
-    // Validar username.
-    // Chequear si el username está vacío.
-    if ($_POST["username"] == "") {
-      $validacion["error"]["username"] = "Este campo es obligatorio.";
-    } else {
+      // Validar username.
+      // Chequear si el username está vacío.
+      if($_POST["username"] == ""){
+        $validacion["error"]["username"]= "Este campo es obligatorio.";
+      } else {
         $validacion["valor"]["username"] = $_POST["username"];
         // El username debe tener entre 5 y 20 caracteres, y sólo se permiten caracteres alfanuméricos.
-        if (!preg_match("/^(?=.{5,20}$)[a-zA-Z0-9]+$/",$validacion["valor"]["username"])) {
+        if(!preg_match("/^(?=.{5,20}$)[a-zA-Z0-9]+$/",$validacion ["valor"]["username"])){
           $validacion["error"]["username"] = "El username debe contener entre 5 y 20 caracteres alfanuméricos.";
           $validacion["valor"]["username"] = "";
-        } elseif (usuario_registrado()){
-            $validacion["error"]["username"] = "El username ingresado ya existe.";
-            $validacion["valor"]["username"] = "";
         }
       }
 
-    // Validar email.
-    // Chequear si el email está vacío.
-    if ($_POST["email"] == "") {
-      $validacion["error"]["email"] = "Este campo es obligatorio.";
-    } else {
-        $validacion["valor"]["email"] = $_POST["email"];
+      // Validar email.
+      // Chequear si el email está vacío.
+      if ($_POST["email"]) =="" {
+        $validacion ["error"]["email"] = "Este campo es obligatorio.";
+      } else {
         // Chequear si el email tiene el formato correcto.
-        if (!filter_var($validacion["valor"]["email"], FILTER_VALIDATE_EMAIL)) {
-          $validacion["error"]["email"] = "El email no tiene el formato correcto.";
-          $validacion["valor"]["email"] = "";
+        $validacion ["valor"]["email"] = $_POST["email"];
+        if(!filter_var($validacion["valor"]["email"], FILTER_VALIDATE_EMAIL)){
+          $validacion["error"] ["email"] = "El mail no tiene el formato correcto.";
+          $validacion["valor"] ["email"] = "";
         }
-        elseif (email_registrado()){
-          $validacion["error"]["email"] = "Ya existe una cuenta con el email ingresado.";
-          $validacion["valor"]["email"] = "";
-      }
-      }
+        }
 
     // Validar fecha de nacimiento.
     // Chequear si la fecha de nacimiento está vacia.

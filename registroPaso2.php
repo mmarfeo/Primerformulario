@@ -30,8 +30,8 @@ $validacion=[
     ]
 ];
 
-/*Paso 4: Hay que llamar la funcion validar validar_registro
-  que fue creado en el paso anterio pero no se esta ejecutando*/
+/*Paso 4: Hay que llamar la funcion validar_registro
+  que fue creado en el paso anterior pero no se esta ejecutando*/
 
   $validacion=validar_registro($validacion);
 ?>
@@ -78,7 +78,7 @@ $validacion=[
               <!-- se crea la etiqueta input para completar el dato necesario  +++<?php //echo $validar["valor"]["nombre"];?>+++ -->
               <input type="text" name="nombre" value="">
             </div>
-            <div class="form-error error">
+            <div class="">
                 <span><?php echo $validacion["error"]["nombre"];?></span>
             </div>
 
@@ -87,12 +87,19 @@ $validacion=[
               <label for="apellido">Apellido</label>
               <input type="text" name="apellido" value="">
             </div>
+            <div class="">
+              <span><?php echo $validacion ["error"]["nombre"];?></span>
+            </div>
 
 <!-- para hacer el var_dump tiene que estar entre etiquetas php <?php// var_dump($_POST)?> como figura aca -->
+
             <!-- Username -->
             <div class="col-5 offset-4">
               <label for="">Username</label>
               <input type="text" name="usuario" value="">
+            </div>
+            <div class="">
+              <span><?echo $validacion["error"]["usuario"];?></span>
             </div>
 
             <!-- Email -->
@@ -100,11 +107,17 @@ $validacion=[
               <label for="email">Email</label>
               <input type="text" name="email" value="">
             </div>
+            <div class="">
+              <span><? echo $validacion ["error"]["email"];?></span>
+            </div>
 
             <!-- Fecha de nacimiento -->
             <div class="col-6 offset-4">
               <label for="">Fecha de Nacimiento</label>
               <input type="date" name="fecha-nac" value="">
+            </div>
+            <div class="">
+              <span><? echo $validacion["error"]["fecha-nac"];?></span>
             </div>
 
             <!-- Género -->
@@ -116,17 +129,26 @@ $validacion=[
               <input type="radio" name="genero" value="mujer">Mujer
               <input type="radio" name="genero" value="Planta">Planta
             </div>
+            <div class="">
+              <span><? echo $validacion["error"]["genero"];?></span>
+            </div>
 
             <!-- Contraseña -->
             <div class="col-6 offset-4">
               <label for="contrasenia">Contraseña</label>
               <input type="password" name="contrasenia" value="">
             </div>
+            <div class="">
+              <span><? echo $validacion ["error"]["contrasenia"];?></span>
+            </div>
 
             <!-- Confirmar contraseña -->
             <div class="col-6 offset-4">
               <label for="conf-contrasenia">Confirmar Contraseña</label>
               <input type="password" name="conf-contrasenia" value="">
+            </div>
+            <div class="">
+              <span><? echo $validacion["error"]["conf-contrasenia"];?></span>
             </div>
 
               <!-- Recordar usuario -->
