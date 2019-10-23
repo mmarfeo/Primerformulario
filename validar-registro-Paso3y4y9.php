@@ -3,6 +3,9 @@
 // el echo esta para verificar que los archivos estan vinculados.
 //echo "lalalalala";
 
+  // Paso 9: Incluir archivos necesarios e ir chequeando que funcione bien.
+  include_once "funciones-Paso6y7y8y10.php";
+
 /* Paso 3 creo la funcion para validar
  si la informacion esta bien o necesito
  que me emita un error.*/
@@ -157,4 +160,5 @@
 
     return $validacion;
   }
-  ?>
+
+?>

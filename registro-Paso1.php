@@ -3,7 +3,7 @@
 
 /* asi como esta el formulario, la informacion se
   envia, chequearlo con el var_dump*/
-var_dump($_POST);
+//var_dump($_POST);
 ?>
 
 <!DOCTYPE html>

@@ -3,7 +3,7 @@
 //var_dump($_POST);
 
     //Incluir archivo para que realice lo necesario
-    include_once "validar-registroPaso3.php";
+    include_once "validar-registro-Paso3y4y9.php";
 
 /* Paso 2: creo la variable que va a recibir
   infomacion de lo enviado por $_POST */
@@ -168,6 +168,7 @@ $validacion=[
           </form>
         </div>
       </main>
+<?php var_dump($_POST)?>
     </div>
   </body>
 </html>
