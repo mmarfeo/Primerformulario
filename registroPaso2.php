@@ -1,8 +1,9 @@
 <?php
-var_dump($_POST);
+// Este var dump es para ver lo que se esta enviando por posts
+//var_dump($_POST);
 
     //Incluir archivo para que realice lo necesario
-    include_once "validar-registro.php";
+    include_once "validar-registroPaso3.php";
 
 /* Paso 2: creo la variable que va a recibir
   infomacion de lo enviado por $_POST */
@@ -15,8 +16,8 @@ $validacion=[
       "email"=>"",
       "fecha-nac"=>"",
       "genero"=>"",
-      "contrasenia"=>"",
-      "conf-contrasenia"=>"",
+      "clave"=>"",
+      "conf-clave"=>"",
     ],
     "error"=> [
       "nombre"=>"",
@@ -25,8 +26,8 @@ $validacion=[
       "email"=>"",
       "fecha-nac"=>"",
       "genero"=>"",
-      "contrasenia"=>"",
-      "conf-contrasenia"=>"",
+      "clave"=>"",
+      "conf-clave"=>"",
     ]
 ];
 
@@ -71,7 +72,7 @@ $validacion=[
 
             <!-- Nombre -->
             <!--Ponemos un div que contenga el dato del fomulario y donde se debe completar-->
-            <div class="col-4 offset-4">
+            <div class="col-6 offset-3">
               <!-- se crea la etiqueta label para el texto que muestra el formulario-->
               <label for="nombre">Nombre</label>
 
@@ -83,82 +84,82 @@ $validacion=[
             </div>
 
             <!-- Apellido -->
-            <div class="col-4 offset-4">
+            <div class="col-6 offset-3">
               <label for="apellido">Apellido</label>
               <input type="text" name="apellido" value="">
             </div>
             <div class="">
-              <span><?php echo $validacion ["error"]["nombre"];?></span>
+              <span><?php echo $validacion ["error"]["apellido"];?></span>
             </div>
 
 <!-- para hacer el var_dump tiene que estar entre etiquetas php <?php// var_dump($_POST)?> como figura aca -->
 
             <!-- Username -->
-            <div class="col-5 offset-4">
-              <label for="">Username</label>
-              <input type="text" name="usuario" value="">
+            <div class="col-6 offset-3">
+              <label for="username">Username</label>
+              <input type="text" name="username" value="">
             </div>
             <div class="">
-              <span><?echo $validacion["error"]["usuario"];?></span>
+              <span><?php echo $validacion["error"]["username"];?></span>
             </div>
-
-            <!-- Email -->
-            <div class="col-4 offset-4">
+<!--<?php //var_dump($_POST ["error"])?>-->
+            <!-- Email ["username"]-->
+            <div class="col-6 offset-3">
               <label for="email">Email</label>
               <input type="text" name="email" value="">
             </div>
             <div class="">
-              <span><? echo $validacion ["error"]["email"];?></span>
+              <span><?php echo $validacion ["error"]["email"];?></span>
             </div>
 
             <!-- Fecha de nacimiento -->
-            <div class="col-6 offset-4">
+            <div class="col-6 offset-3">
               <label for="">Fecha de Nacimiento</label>
               <input type="date" name="fecha-nac" value="">
             </div>
             <div class="">
-              <span><? echo $validacion["error"]["fecha-nac"];?></span>
+              <span><?php echo $validacion["error"]["fecha-nac"];?></span>
             </div>
 
             <!-- Género -->
-            <div class="col-1 offset-4">
+            <div class="col-1 offset-3">
               <label for="genero">Género</label>
             </div>
-            <div class="col-7">
+            <div class="col-5">
               <input type="radio" name="genero" value="hombre">Hombre
               <input type="radio" name="genero" value="mujer">Mujer
               <input type="radio" name="genero" value="Planta">Planta
             </div>
             <div class="">
-              <span><? echo $validacion["error"]["genero"];?></span>
+              <span><?php echo $validacion["error"]["genero"];?></span>
             </div>
 
             <!-- Contraseña -->
-            <div class="col-6 offset-4">
-              <label for="contrasenia">Contraseña</label>
-              <input type="password" name="contrasenia" value="">
+            <div class="col-6 offset-3">
+              <label for="clave">Contraseña</label>
+              <input type="password" name="clave" value="">
             </div>
             <div class="">
-              <span><? echo $validacion ["error"]["contrasenia"];?></span>
+              <span><?php echo $validacion ["error"]["clave"];?></span>
             </div>
 
             <!-- Confirmar contraseña -->
-            <div class="col-6 offset-4">
-              <label for="conf-contrasenia">Confirmar Contraseña</label>
-              <input type="password" name="conf-contrasenia" value="">
+            <div class="col-6 offset-3">
+              <label for="conf-clave">Confirmar Contraseña</label>
+              <input type="password" name="conf-clave" value="">
             </div>
             <div class="">
-              <span><? echo $validacion["error"]["conf-contrasenia"];?></span>
+              <span><?php echo $validacion["error"]["conf-clave"];?></span>
             </div>
 
               <!-- Recordar usuario -->
-              <div class="col-4 offset-6">
+              <div class="col-6 offset-4">
                 <input type="checkbox" name="recordarme" value="">
                 <label for="recordarme">Recordarme</label>
               </div>
 
               <!-- Enviar formulario -->
-              <div class="col-4 offset-6">
+              <div class="col-6 offset-4">
                 <input type="submit" value="Crear cuenta" class="boton">
               </div>
 

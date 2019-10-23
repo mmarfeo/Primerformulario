@@ -1,7 +1,7 @@
 <?php
 
 // el echo esta para verificar que los archivos estan vinculados.
-echo "lalalalala";
+//echo "lalalalala";
 
 /* Paso 3 creo la funcion para validar
  si la informacion esta bien o necesito
@@ -58,8 +58,8 @@ echo "lalalalala";
       }
       // Validar username.
       // Chequear si el username está vacío.
-      if($_POST["username"] == ""){
-        $validacion["error"]["username"]= "Este campo es obligatorio.";
+      if ($_POST["username"] == "") {
+      $validacion["error"]["username"] = "Este campo es obligatorio.";
       } else {
         $validacion["valor"]["username"] = $_POST["username"];
         // El username debe tener entre 5 y 20 caracteres, y sólo se permiten caracteres alfanuméricos.
@@ -71,7 +71,7 @@ echo "lalalalala";
 
       // Validar email.
       // Chequear si el email está vacío.
-      if ($_POST["email"]) =="" {
+      if ($_POST["email"] == "") {
         $validacion ["error"]["email"] = "Este campo es obligatorio.";
       } else {
         // Chequear si el email tiene el formato correcto.
@@ -101,7 +101,7 @@ echo "lalalalala";
     } else {
         $validacion["valor"]["genero"] = $_POST["genero"];
       }
-
+/*
     // Validar foto de perfil.
     $validacion["valor"]["foto-perfil"] = false;
     if($_FILES["foto-perfil"]["error"] === UPLOAD_ERR_OK){
@@ -125,12 +125,17 @@ echo "lalalalala";
           $validacion["valor"]["foto-perfil"] = true;
       }
     }
-
+*/
     // Validar contraseña.
-    // Chequear si la contraseña está vacía.
+    // Chequear si la contraseña completada en el formulario está vacía.
     if($_POST["clave"] == ""){
+    // Si esta vacia que conplete la variable $validacion en posicion error
+    // dentro de ese la posicion clave y completarlo con el texto indicado
       $validacion["error"]["clave"] = "Este campo es obligatorio.";
-    } else {
+    }
+    // sino estas vacio comparar la variable $validacion en la posicion
+    // valor y de ahi la posicion clave sea igual a lo enviado por post, si es es true
+    else {
         $validacion["valor"]["clave"] = $_POST["clave"];
         // Chequear si la contraseña tiene el formato correcto.
         if (!preg_match("/^\S*(?=\S{8,})(?=\S*[\d])\S*$/",$validacion["valor"]["clave"])) {
@@ -149,7 +154,7 @@ echo "lalalalala";
           $validacion["valor"]["conf-clave"] = "";
         }
       }
-*/
+
     return $validacion;
   }
   ?>
