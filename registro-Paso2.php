@@ -5,6 +5,9 @@
     //Incluir archivo para que realice lo necesario
     include_once "validar-registro-Paso3y4y9.php";
 
+// ver porque esto me da error
+  //  include_once "alta-usuario-Paso11.phps";
+
 /* Paso 2: creo la variable que va a recibir
   infomacion de lo enviado por $_POST */
 
@@ -16,6 +19,7 @@ $validacion=[
       "email"=>"",
       "fecha-nac"=>"",
       "genero"=>"",
+      "foto-perfil" => "",
       "clave"=>"",
       "conf-clave"=>"",
     ],
@@ -26,6 +30,7 @@ $validacion=[
       "email"=>"",
       "fecha-nac"=>"",
       "genero"=>"",
+      "foto-perfil" => "",
       "clave"=>"",
       "conf-clave"=>"",
     ]
@@ -34,7 +39,23 @@ $validacion=[
 /*Paso 4: Hay que llamar la funcion validar_registro
   que fue creado en el paso anterior pero no se esta ejecutando*/
 
-  $validacion=validar_registro($validacion);
+  if($_POST){
+
+      // Paso numero  :
+      // Recordar usuario aunque se cierre el navegador, si el usuario así lo desea.
+      //if(isset($_POST["recordarme"]) != null && !isset($_POST["cerrar-sesion"])){
+          //setcookie("username",$_POST["username"], time()+60*60*24*30);
+      //}
+
+      // Validar formulario de registro.
+      $validacion = validar_registro($validacion);
+
+      // Guardar usuarios nuevos en JSON.
+      if($validacion["error"]["foto-perfil"] == null){  
+          $validacion["error"]["foto-perfil"] = alta_usuario($validacion["valor"]);
+      }
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -132,6 +153,16 @@ $validacion=[
             </div>
             <div class="">
               <span><?php echo $validacion["error"]["genero"];?></span>
+            </div>
+
+            <!-- Foto de perfil -->
+            <div class="input-container col-6 offset-3">
+                <label for="foto">Foto de perfil</label>
+            <!-- El type="file", me genera un boton que dice seleccionar archivo y me abre el directorio-->
+                <input type="file" name="foto-perfil" id="foto-perfil">
+            </div>
+            <div class="form-error error">
+                <span><?php echo $validacion["error"]["foto-perfil"];?></span>
             </div>
 
             <!-- Contraseña -->

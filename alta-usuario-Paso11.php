@@ -11,11 +11,12 @@
         $alta_usuario = false;
 
         // Chequear si están completos todos los campos obligatorios
+        // que hace esta funcion
         if($datos["nombre"] && $datos["apellido"] && $datos["username"] && $datos["email"] && $datos["fecha-nac"] && $datos["genero"] && $datos["clave"]){
             $alta_usuario = true;
             $usuarios = traer_usuarios();
             $id = strval(count($usuarios));
-/*
+
             // Si no hubo errores, tratar de subir el archivo (si hay archivo).
             if ($datos["foto-perfil"]) {
                 $directorio_destino = "fotos-perfil/";
@@ -49,13 +50,13 @@
         guardar_usuarios($usuarios);
 
         // Siempre recordar al usuario hasta que se cierre el navegador, excepto que cierre sesión.
-        $_SESSION["username"] = $_POST["username"];
+        //$_SESSION["username"] = $_POST["username"];
 
         // Redirigir a home.
         header("Location:index.php");
     }
 
         return "";
-*/
+
     }
 ?>

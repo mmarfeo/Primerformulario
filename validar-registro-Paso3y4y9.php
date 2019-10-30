@@ -21,6 +21,10 @@
       nombre y cambiar su informacion que esta "" vacia por "Este campo
       es obligatorio" y ...*/
 
+/* El if ($_POST){ pregunta que si se envio informacion por post entre a las llaves y realice
+    todos los if que estan dentro, sino estuviera este, me surgiria el erro antes que del formulario*/
+    if ($_POST){
+
     if ($_POST["nombre"] == "") {
         $validacion["error"]["nombre"] = "Este campo es obligatorio.";
     }
@@ -104,7 +108,8 @@
     } else {
         $validacion["valor"]["genero"] = $_POST["genero"];
       }
-/*
+
+    // Preguntar por esto, que es lo que hace y como se hace.
     // Validar foto de perfil.
     $validacion["valor"]["foto-perfil"] = false;
     if($_FILES["foto-perfil"]["error"] === UPLOAD_ERR_OK){
@@ -128,7 +133,7 @@
           $validacion["valor"]["foto-perfil"] = true;
       }
     }
-*/
+
     // Validar contraseña.
     // Chequear si la contraseña completada en el formulario está vacía.
     if($_POST["clave"] == ""){
@@ -158,7 +163,9 @@
         }
       }
 
+    }
     return $validacion;
+
   }
 
 ?>

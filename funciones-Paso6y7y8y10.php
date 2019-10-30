@@ -51,7 +51,7 @@ function usuario_registrado(){
    // se crea la variable $usuarios que va a tener la informacion de la funcion ya creada en el paso 6.
     $usuarios = traer_usuarios();
   // como ahora $usuarios es un array como consecuencia de la funcion traer_usuarios() que a la vez contiene la funcion file_get_contents() que puede ser falsa.
-  // entonces decimos que si $usuarios no es null, recorra el array con el foreach y si lo envaido por $_POST["username"] en el formulario, es igual a lo que tiene la variable $usuario en la posicion "username", retorne verdadero (??????No entiento para que necesito que me retorne verdadero)
+  // entonces decimos que si $usuarios no es null, recorra el array con el foreach y si lo enviado por $_POST["username"] en el formulario, es igual a lo que tiene la variable $usuario en la posicion "username", retorne verdadero, que significa que el usuario ya existe.
     if($usuarios != null){
         foreach($usuarios as $usuario){
             if($usuario["username"] == $_POST["username"]){
@@ -59,7 +59,7 @@ function usuario_registrado(){
             }
         }
     }
-    // Si $usuarios es igual a null como consecuencia de la funcion file_get_contents() que puede ser false, no entra al if y directamente me retorne false.((??????No entiento para que necesito que me retorne falso)
+    // Si $usuarios es igual a null como consecuencia de la funcion file_get_contents() que puede ser false, no entra al if y directamente me retorne false, que significa que el usuario no existe.
     return false;
 }
 // Paso 10: lo mismo que en el paso anterior
